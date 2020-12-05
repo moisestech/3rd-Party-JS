@@ -15,9 +15,22 @@
 
 ### **1.5 Summary**
 
-- Third-party JavaScript is a powerful way of building embedded and highly distributable web applications.
-- These applications can come in many shapes and sizes, but we looked at three specific use cases: as interactive widgets, as passive scripts that collect data, and as developer libraries that communicate with third-party web APIs.
-- But compared to developing regular stay-at-home web applications, third-party scripts face additional challenges. They require you to execute your code in an unknown, shared, and potentially hostile browser environment.
+- Third-party JavaScript is a powerful way of building **embedded and highly distributable web applications**.
+- These applications can come in many shapes and sizes, but we looked at three specific use cases:
+  - as **interactive widgets**
+  - as **passive scripts that collect data**
+  - and as **developer libraries that communicate with third-party web APIs.**
+
+#### 3rd Party Challenges
+
+- But compared to developing regular stay-at-home web applications, third-party scripts face additional challenges.
+- They require you to execute your code in an:
+  - **unknown**
+  - **shared**
+  - and **potentially hostile** browser environment.
+
+#### Next Chapter
+
 - We’ve only scratched the surface of what it means to write third-party scripts.
 - In the next chapter, we’ll hit the ground running by covering the front-to-back creation of an embedded widget.
 - This is one of the most common use cases for third-party JavaScript, and serves as an excellent starting place for covering third-party concepts and challenges.
