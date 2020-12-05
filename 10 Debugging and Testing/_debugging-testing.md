@@ -4,6 +4,30 @@
 2. Stepping through code with the **JavaScript debugger**
 3. **Testing with QUnit and Hiro**
 
+## **10.1 Debugging**
+
+## **10.2 Testing**
+
+## **10.3 Summary**
+
+- Testing and debugging are things that most developers do reluctantly.
+- It makes sense to debug—after all, if you’re debugging, it means that there’s a bug, someone found
+  it, and this person is probably not happy about the whole situation.
+- But now that you know how to approach bugs in third-party widgets, you’re able to put all the pieces of
+  information together and fix your next bug much quicker.
+- In addition to that, you know how to set up your testing and debugging environment in an unobtrusive but
+  extremely helpful way.
+
+- Figure 10.7 Example Hiro output: green borders around each suite mean that
+  both of them successfully passed.
+- Once again, everything works as expected.
+
+- And though debugging isn’t pleasant, writing tests is fun! In this chapter, we covered two testing frameworks: QUnit and Hiro.
+- Knowing how to use just one of them should be sufficient for covering your widget’s functionality with tests
+- So go write some tests! The earlier you start, the more confident you’ll be when implementing new features and changing code.
+- And the more confident you are, the faster you can iterate with your third-party JavaScript application.
+- What’s next? Profit!
+
 ---
 
 From [[3rd-party-js]]
