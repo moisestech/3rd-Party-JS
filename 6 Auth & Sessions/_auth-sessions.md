@@ -5,6 +5,27 @@
 3. **Workarounds when 3rd Party Cookies are Disabled**
 4. Techniques for **defending against session hijacking**
 
+## **6.1 3rd-Party Cookies**
+
+## **6.2 Setting 3rd-Party Cookies**
+
+## **6.3 Securing Sessions**
+
+## **6.4 Summary**
+
+- Authenticating and persisting sessions with third-party applications is tough to implement, but not impossible.
+- The difficulty is that each browser treats disabling third-party cookies differently, and you’ll need to supply different workaround solutions to support them all.
+- For IE, Opera, and Safari, which transmit cookies to third-party domains if they’re already set, you can always open a new window to a login page on your domain and set the cookie there. Safari can even use iframes, provided the session cookie is set in the response to a standard form POST HTTP request.
+- Chrome and Firefox, the most restrictive browsers with respect to third-party cookies, must make do with sessions that only last the duration of the user’s stay on the page.
+- Of course, just setting and sending a session cookie isn’t enough.
+- You also need to transmit that cookie in such a way that it isn’t easily snoopable by malicious parties.
+- The solution is to use HTTPS everywhere you send session information.
+- But if that’s not realistic for your organization, you can use a mixed approach where high-touch actions are served behind HTTPS, and actions performed from your third-party application use unencrypted HTTP.
+- Session hijacking is, unfortunately, one of many possible security vulnerabilities affecting third-party JavaScript applications.
+- We’ve mentioned a handful of others over the course of this book.
+- But in the next chapter, we’ll take an in-depth look at the largest security issues facing your application and introduce practices for either eliminating them or mitigating their impact.
+- Shall we?
+
 ---
 
 From [[3rd-party-js]]
