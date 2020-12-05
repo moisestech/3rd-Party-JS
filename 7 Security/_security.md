@@ -4,6 +4,27 @@
 2. Cross-site request forgery (XSRF)
 3. Publisher impersonation, clickjacking, and denial of service.
 
+## **7.1 Cookies, Sessions, and Session Theft**
+
+## **7.2 Cross-site Scripting**
+
+## **7.3 Cross-site Request Forgery**
+
+## **7.4 Publisher Vulnerabilities**
+
+## **7.5 Summary**
+
+- We started this chapter with a refresher on cookies, and then walked through different types of web application vulnerabilities: cross-site scripting, cross-site request forgery, and a number of vulnerabilities that either affect or are caused by publishers.
+- The important lesson here is that you should never underestimate or shelve the problem of keeping your third-party application secure.
+- As we said in the introduction to this chapter, the stakes are high for everyone and especially for you—the third-party JavaScript application provider. Not only do users trust you with their data, but so do publishers with their online properties.
+- That’s why you have to think about security implications at all stages of your application’s development.
+- There’s no silver bullet when it comes to defending yourself against different types of attacks.
+- You’ll probably have to use all the techniques we showed in this chapter plus invest time in additional research.
+- Web application security is a fun and thriving subject and, in case you’re interested in further exploring it, we recommend you take a look at the Web Application Hacker’s Handbook (Wiley, 2008) — a great resource on web application security.
+- As for us, it’s time to move on.
+- In the next chapter, we’ll revisit some assumptions we’ve made about distributing and deploying a third-party application.
+- Instead of relying solely on self-executing applications deployed using script-include snippets, we’ll look at how you can package your apps as complete JavaScript libraries, or third-party JavaScript SDKs.
+
 ---
 
 From [[3rd-party-js]]
