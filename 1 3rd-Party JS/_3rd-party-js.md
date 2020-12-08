@@ -1,5 +1,7 @@
 # 💻 **3rd Party-JS**
 
+[GDoc Notes](https://docs.google.com/document/d/1ss6_9MMNtofp4CuAIh8ZUoLP1rpDFw3v0ruu9B4AEVk/edit?usp=sharing)
+
 1. Explaining third-party JavaScript
 2. Real-world examples of third-party applications
 3. Walk-through implementation of a simple embedded widget
