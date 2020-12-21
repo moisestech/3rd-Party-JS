@@ -1,1 +1,0 @@
-# AJAX Same Origin Policy
