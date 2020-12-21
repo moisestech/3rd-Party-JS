@@ -1,1 +1,0 @@
-# Cross-Origin Resouce Sharing
