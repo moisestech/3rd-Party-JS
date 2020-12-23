@@ -1,0 +1,103 @@
+## 2.5.1 Using the query string
+
+The most straightforward way of passing parameters to your script is using the query
+
+string component of the script’s URL. If you recall the script include snippet from sec-
+tion 2.2, the script URL target included a query string component with a product ID
+
+parameter:
+
+<script>
+(function() {
+var script = document.createElement('script');
+script.async = true;
+script.src = 'http://camerastork.com/widget.js?product=1234';
+
+var entry = document.getElementsByTagName('script')[0];
+entry.parentNode.insertBefore(script, entry);
+})();
+</script>
+
+You might remember that this is the same parameter-passing technique we covered in
+chapter 1 with the weather widget example. In that example, a server-side Python
+application read the ZIP code from the HTTP request’s query string. The application
+then queried the database for the relevant weather data and generated JavaScript to
+output the result on the publisher’s page.6
+This time around, we’ll try a different approach. Instead of relying on a server-side
+script to obtain the passed parameter, you’ll retrieve the parameter using strictly
+client-side JavaScript.
+
+## Working with HTTPS URLs
+
+So far, all of the script-loading examples we’ve covered use strictly the http://
+protocol for URLs. This will work fine for 99% of websites, but some publishers may
+be serving their content using https:// (HTTP Secure). This is a secure protocol that
+encrypts content between the server and the browser.
+
+In order to load your application properly on these websites (and avoid “insecure con-
+tent” warnings), your application will also need to be served using HTTPS. This
+
+requires two things: configuring your servers to support HTTPS, and having your script
+include snippet (and all other URLs) point to the correct protocol. One technique is to
+check the protocol of the current page, and defer to the appropriate URL:
+var secure = window.location.protocol === 'https:';
+script.src = (secure ? 'https' : 'http') +
+'://camerastork.com/widget.js';
+
+Alternatively, you can use what are known as protocol-relative URLs. These automat-
+ically resolve to the parent page’s protocol:
+
+script.src = '//camerastork.com/widget.js';
+On http:// websites, this URL will resolve to http://camerastork.com/widget.js. On
+https:// websites, it’ll instead resolve to https://camerastork/widget.js.
+Protocol-relative URLs are more elegant and work in all browsers, but be careful—
+they can sometimes behave unexpectedly. For example, if you’re viewing a web page
+on your local filesystem using the file:// protocol, this example would resolve to
+file://camerastork.com/widget.js, a URL that (probably) doesn’t exist. There are
+also issues where some resources (like <link> tags) will load twice when using
+protocol-relative URLs on HTTPS pages.6
+
+Remember that before you can use either technique, you have to configure your serv-
+ers to handle both HTTP and HTTPS. We’ll talk more about HTTPS later in this book.
+
+This is trickier than you might expect. This is because the JavaScript file that’s
+being served has no innate knowledge of the URL it was served from. Your first instinct
+
+might be to access the script’s URL using window.location.href, but you’ll be unsuc-
+cessful. This is because window.location.href is the URL of the page that’s including
+
+the JavaScript file, not the URL of the JavaScript file itself.
+There’s a clever technique for obtaining the script URL. It relies on the fact that
+the script DOM element that loads your third-party script can be queried on the DOM
+like any regular HTML element. You can use document.getElementsByTagName to
+return a list of all script elements on the page, and iterate through them until you find
+the script element whose URL points to your script file. The following listing presents
+a function that does exactly that.
+
+**Listing 2.6 Getting the script URL**
+
+**Listing 2.7 Extracting query parameters**
+
+The final code for extracting the product ID from the script include URL looks like
+this next snippet. Note that you can separate the query string from the full URL using
+a simple regular expression:
+var url = getScriptUrl();
+var params = getQueryParameters(url.replace(/^.\*\?/, ''));
+var productId = params.product;
+At this point, your script has the ID of the product it needs to request information
+from the server. All that remains is to make some kind of AJAX request for that data,
+and render the corresponding HTML on the page.
+But using the query string in this fashion has a significant drawback. You’ll need to
+distribute a different script include snippet for each product, because the product ID
+component of the URL will change for each one. This will make caching your
+
+JavaScript file difficult, because the web browser will treat every new URL as a brand-
+new resource, even if the query string doesn’t alter the code that’s being returned.
+
+---
+
+### From [[_5_passing-args]]
+
+[//begin]: # "Autogenerated link references for markdown compatibility"
+[_5_passing-args]: _5_passing-args "Passing Args"
+[//end]: # "Autogenerated link references"
