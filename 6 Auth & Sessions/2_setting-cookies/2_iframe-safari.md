@@ -1,0 +1,101 @@
+# iFrame Safari
+
+## **6.2.2 Iframe workaround (Safari only)**
+
+Let’s say that you’re not a fan of opening new windows. In fact, you’re insistent on
+delivering a user experience for authenticating users that doesn’t involve redirecting
+them to a dedicated login form. If that’s the case, there’s a specific scenario in which
+your application can perform authentication directly from an iframe element. It’s so
+specific that it only affects a single browser!
+It turns out that in Safari (including mobile Safari on iOS) you can set third-party
+cookies from inside an external iframe element only using a standard form POST. Safari
+will reject any attempt to set cookies using document.cookie or using XmlHttpRequest,
+but will allow cookies on HTTP requests submitted using HTML forms. At one point this
+could be done automatically via JavaScript, but a recent update to Safari requires this
+form submission to be initiated by the user—otherwise any malicious script could set
+third-party cookies without the user’s knowledge.
+In a perfect world, you’d use feature detection to detect whether the user’s
+browser supports this behavior. Unfortunately, that would require having the user
+manually submit a test form to see whether a cookie was successfully persisted.
+Instead, we advocate detecting when Safari is present using either user-agent sniffing
+
+or—better yet—testing for the presence of a unique Safari browser property. Since
+any browser can “spoof” a user-agent string, property testing is often preferred.
+Here’s a function that returns true if the current browser is Safari. It does this by
+calling toString on the window.HTMLElement property and checking whether the
+
+result is [object HTMLElementConstructor]. Only Safari is known to return this spe-
+cific value:
+
+function isSafari() {
+return Object.prototype.toString.call(window.HTMLElement) ===
+"[object HTMLElementConstructor]";
+}
+
+Armed with this function, your code to decide whether to use an iframe-based solu-
+tion or whether to use a new window solution (like we just covered in 6.2.1) might
+
+look like this.
+
+**Listing 6.4 Deciding which persistence technique to use when initiating a login**
+
+function initiateLogin() {
+if (isSafari()) {
+showIframeForm();
+} else {
+openLoginWindow();
+}
+}
+var login = document.getElementById('login');
+if (login.addEventListener) {
+login.addEventListener('click', initiateLogin, false);
+} else if (login.attachEvent) {
+login.attachEvent('onclick', initiateLogin);
+}
+All that’s left is to render a form inside your iframe and have it authenticate the user
+after it’s POSTed. The tricky thing is that you can’t render the form inside the same
+iframe that’s shared with your widget visuals. Otherwise, when the form submits, the
+entire iframe will be reloaded. You could render the same contents when the iframe
+returns, but there will be a momentary blip where the iframe will appear empty, and
+that’s undesirable.
+The solution? A second iframe for displaying the authentication form, embedded
+inside the main top-level iframe (see figure 6.7).
+Now, when the user submits the login form, only the login iframe will refresh. The
+parent iframe will remain the same. And because this is a regular form POST initiated
+
+by the user, any cookies set in the HTTP response of the form submission will be per-
+sisted in Safari, even with third-party cookies disabled.
+
+Hopefully, at this point in the book you know how to create an iframe element and
+point it to a URL on an external website—in this case, a dedicated login form page
+hosted on camerastork.com. Also, because the iframe is a window object, you can use
+
+**Figure 6.7 Embedding the authentication form in a second, separate iframe allows users to POST the form without reloading the parent iframe**
+
+the same code from the new window example (see section 6.2.1) to initiate and
+
+receive messages between the login iframe and the parent iframe using the post-
+Message API. If it isn’t clear how this embedded iframe example works, you can see a
+
+working example in the companion source code.
+IFRAMED AUTHENTICATION PAGES CONSIDERED HARMFUL
+Logging in through an external iframe might seem like an ideal user experience, but
+it suffers from a major flaw: the user can’t easily verify the form’s origin. A malicious
+
+party could mimic your authentication form, and trick unsuspecting users into divulg-
+ing their password. Compare this to presenting an authentication form in a new win-
+dow, where the user can clearly see the originating URL and secure page notice (if
+
+your authentication page supports HTTPS, as it should—we’ll cover this shortly).
+So why show this example? Because it’s a cool hack, and we wanted to share that
+it’s possible—in one browser, at least. But our recommendation is to use dedicated
+windows for setting third-party cookies. It may not be the best user experience, but it’s
+the safest, most fool-proof technique.
+
+---
+
+#### From [[_2_setting-cookies]]
+
+[//begin]: # "Autogenerated link references for markdown compatibility"
+[_2_setting-cookies]: _2_setting-cookies "Setting Cookies"
+[//end]: # "Autogenerated link references"
