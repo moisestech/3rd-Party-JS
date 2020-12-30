@@ -2,25 +2,50 @@
 
 Third-party JavaScript isn’t used exclusively in the creation of embedded widgets.
 
-There are other uses that don’t necessarily involve graphical, interactive web page elements. Often they’re silent scripts that process information on the publisher’s page without the user ever knowing they’re there. The most common such use case is in analytics and metrics gathering.
+There are other **uses that don’t necessarily involve graphical**, **interactive web page elements**.
 
-One of JavaScript’s most powerful features is that it enables developers to capture and respond to user events as they occur on a web page. For example, you can write JavaScript to respond to a website visitor’s mouse movements and/or mouse clicks.
+Often they’re **silent scripts that process information on the publisher’s page** without the user ever knowing they’re there.  
+The most common such use case is in **analytics and metrics gathering**.
 
-Third-party scripts are no exception: they too can observe browser events and capture data about how the visitor interacts with the publisher’s page. This might include tracking how long a visitor stays on a page before moving on, what content they saw while they were reading the page, and where they went afterward. There are dozens of browser events your JavaScript code can hook into from which you could derive hundreds of different insights.
+One of **JavaScript’s most powerful features is that it enables developers to capture and respond to user events as they occur on a web page**.
 
-**PASSIVE SCRIPTS**
+For example, you can **write JavaScript to respond to a website visitor’s mouse movements and/or mouse clicks**.
 
-Crazy Egg, another web startup, is one example of an organization that uses third-party scripts in this way. Their analytics product generates visualizations of user activity on your web page (see figure 1.4). To obtain this data, Crazy Egg distributes a script to publishers that captures the mouse and scroll events of web page visitors.
+Third-party scripts are no exception:
+they too **can observe browser events and capture data about how the visitor interacts with the publisher’s page**.
+This might include
 
-This data is submitted back to Crazy Egg’s servers, all in the same script. The visualizations Crazy Egg generates help publishers identify which parts of their website are being accessed frequently, and which are being ignored. Publishers use this information to improve their web design and optimize their content.
+1. tracking how long a visitor stays on a page before moving on,
+2. what content they saw while they were reading the page,
+3. and where they went afterward.
 
-**Figure 1.4 Crazy Egg's hear map visualization highlights trafficked areas of publishers websites**
+There are dozens of **browser events your JavaScript code can hook** into **from which you could derive hundreds of different insights**.
 
-Crazy Egg’s third-party script is considered a passive script; it records statistical data without any interaction from the publisher. The publisher is solely responsible for including the script on the page. The rest happens automatically.
+### **PASSIVE SCRIPTS**
 
-**ACTIVE SCRIPTS**
+**Crazy Egg**, another web startup, is one example of an organization that uses third-party scripts in this way.
 
-Not all analytics scripts behave passively. Mixpanel is an analytics company whose product tracks publisher-defined user actions to generate statistics about website visitors or application users. Instead of generic web statistics, like page views or visitors, Mixpanel has publishers define key application events they want to track. Some example events might be “user clicked the signup button,” or “user played a video.” Publishers write simple JavaScript code (see listing 1.3) to identify when the action takes place and then call a tracking method provided by Mixpanel’s third-party scripts to register the event with their service. Mixpanel then assembles this data into interesting funnel statistics to help answer questions like, “What series of steps do users take before upgrading the product?”
+- Their analytics product generates visualizations of user activity on your web page `(see figure 1.4)`.
+- To obtain this data, Crazy Egg distributes a script to publishers that captures the mouse and scroll events of web page visitors.
+
+This data is submitted back to Crazy Egg’s servers, all in the same script.  
+The visualizations Crazy Egg generates help publishers identify which parts of their website are being accessed frequently, and which are being ignored.  
+Publishers use this information to improve their web design and optimize their content.
+
+**`Figure 1.4` Crazy Egg's hear map visualization highlights trafficked areas of publishers websites**
+
+Crazy Egg’s third-party script is considered a **passive script**; it records statistical data without any interaction from the publisher.  
+The publisher is solely responsible for including the script on the page.  
+The rest happens automatically.
+
+### **ACTIVE SCRIPTS**
+
+Not all analytics scripts behave passively.
+Mixpanel is an analytics company whose product tracks publisher-defined user actions to generate statistics about website visitors or application users.  
+Instead of generic web statistics, like page views or visitors, Mixpanel has publishers define key application events they want to track.  
+Some example events might be “user clicked the signup button,” or “user played a video.”  
+Publishers write simple JavaScript code `(see listing 1.3)` to identify when the action takes place and then call a tracking method provided by Mixpanel’s third-party scripts to register the event with their service.  
+Mixpanel then assembles this data into interesting funnel statistics to help answer questions like, “What series of steps do users take before upgrading the product?”
 
 **Listing 1.4 Tracking user sighups with the Mixpanel JS API**
 
