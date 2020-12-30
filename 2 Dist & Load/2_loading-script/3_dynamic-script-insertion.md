@@ -2,32 +2,25 @@
 
 ## 2.2.3 Dynamic Script Insertion
 
-It turns out you can re-create the behavior achieved by the async attribute by dynamically creating a script DOM element in JavaScript and appending it to the publisher’s page.
+- It turns out you can re-create the behavior achieved by the async attribute by dynamically creating a script DOM element in JavaScript and appending it to the publisher’s page.
+- Because you can append this script element to an arbitrary DOM location, even one that has already been processed by the browser, browsers don’t preserve execution order for JavaScript loaded in this fashion.
+- And because execution order isn’t preserved, the browser downloads these files in parallel.
+- This is your path to asynchronous script loading in browsers old and new.
+- Here’s how the script include snippet looks using dynamic `<script>` tag insertion.
 
-Because you can append this script element to an arbitrary DOM location, even one that has already been processed by the browser, browsers don’t preserve execution order for JavaScript loaded in this fashion.
-
-And because execution order isn’t preserved, the browser downloads these files in parallel.
-This is your path to asynchronous script loading in browsers old and new.
-
-Here’s how the script include snippet looks using dynamic `<script>` tag insertion.
-
+[MISSING-CODE-SNIPPET]
 ``
 
 **Listing 2.1 Asynchronous Script Include**
 
-Let's discuss some interesting points about this example. You’ll notice that the script element’s async attribute is set to true
-
-This isn’t just for posterity—Opera and some older versions of Firefox require this attribute to be set in order for the script to be executed as soon as it is downloaded.
-
-Otherwise, Opera and Firefox will attempt to preserve execution order (similar to the defer attribute).
-
-Second, you’ll notice that this entire snippet is wrapped in an **immediately-invoked function expression**, or **IIFE**.
-
-This prevents the script and entry variables from leaking into the global scope.
-
-Remember: this code snippet is executing on the publisher’s page, which could be home to any number of additional, unknown scripts.
-
-It’s best to avoid declaring global variables, which could interfere with—or be interfered with by—other JavaScript code.
+- Let's discuss some interesting points about this example.
+- You’ll notice that the script element’s async attribute is set to true.
+- This isn’t just for posterity—Opera and some older versions of Firefox require this attribute to be set in order for the script to be executed as soon as it is downloaded.
+- Otherwise, Opera and Firefox will attempt to preserve execution order (similar to the defer attribute).
+- Second, you’ll notice that this entire snippet is wrapped in an **immediately-invoked function expression**, or **IIFE**.
+- This prevents the script and entry variables from leaking into the global scope.
+- Remember: this code snippet is executing on the publisher’s page, which could be home to any number of additional, unknown scripts.
+- It’s best to avoid declaring global variables, which could interfere with—or be interfered with by—other JavaScript code.
 
 **ERROR-FREE <SCRIPT> TAG INSERTION**
 In the previous example, the `<script>` tag element is inserted before another found script element on the page.
