@@ -1,25 +1,31 @@
 ## **1.2.1 Embedded Widgets**
 
-Embedded widgets (often third-party widgets) are perhaps the most common use case of third-party scripts.
-These are typically small, interactive applications that are rendered and made accessible on a publisher’s website, but load and submit resources to and from a separate set of servers.
+**Embedded widgets** (**often third-party widgets**) are perhaps the most common use case of third-party scripts.  
+These are **typically small, interactive applications that are rendered and made accessible on a publisher’s website, but load and submit resources to and from a separate set of servers**.
+
 Widgets can vary widely in complexity; they can be as simple as a graphic that displays the weather in your geographic location, or as complex as a full-featured instant messaging client.
 
-Widgets enable website publishers to embed applications into their web pages with little effort.
-They’re typically easy to install; more often than not publishers need only insert a small HTML snippet into their web page source code to get started.
-Since they’re entirely JavaScript-based, widgets don’t require the publisher to install and maintain any software that executes on their servers, which means less maintenance and upkeep.
+**Widgets enable website publishers to embed applications into their web pages with little effort**.  
+They’re typically **easy to install**; more often than not publishers need only insert a small HTML snippet into their web page source code to get started.  
+Since they’re **entirely JavaScript-based, widgets don’t require the publisher to install and maintain any software that executes on their servers**, which means less maintenance and upkeep.
 
-Some businesses are built entirely on the development and distribution of embedded widgets.
-Earlier we mentioned Disqus, a web startup based in San Francisco.
-**Disqus** develops a commenting widget (see figure 1.3) that serves as a drop-in commenting section for blogs, online publications, and other websites.
-Their product is driven almost entirely by third-party JavaScript.
-It uses JavaScript to fetch commenting data from the server, render the comments as HTML on the page, and capture form data from other commenters—in other words, everything.
-It’s installed on websites using a simple HTML snippet that totals five lines of code.
-**Disqus** is an example of a product that’s only usable in its distributed form; you’ll need to visit a publisher’s page to use it.
-But widgets aren’t always standalone products like this.
-Often they’re “portable” extensions of larger, more traditional stay-at-home web applications.
+Some **businesses are built entirely on the development and distribution of embedded widgets**.
 
-For example, consider **Google Maps**, arguably the web’s most popular mapping application.
-Users browse to https://maps.google.com to view interactive maps of locations all over the world.
+### **Disqus**
+
+Earlier we mentioned **Disqus**, a web startup based in San Francisco.  
+**Disqus** develops a commenting widget `(see figure 1.3)` that serves as a drop-in commenting section for blogs, online publications, and other websites.  
+Their product is driven almost entirely by third-party JavaScript.  
+It **uses JavaScript to fetch commenting data from the server**, **render the comments as HTML on the page**, and **capture form data from other commenters—in other words**, everything.  
+It’s installed on websites using a **simple HTML snippet that totals five lines of code**.  
+**Disqus** is an example of a **product that’s only usable in its distributed form**; you’ll need to visit a publisher’s page to use it.
+But **widgets aren’t always standalone products like this**.  
+Often they’re **“portable” extensions of larger, more traditional stay-at-home web applications**.
+
+### **Google Maps**
+
+For example, consider **Google Maps**, arguably the web’s most popular mapping application.  
+Users browse to https://maps.google.com to view interactive maps of locations all over the world.  
 Google Maps also provides directions by car and public transit, satellite imagery, and even street views using on-location photography.
 
 ---
