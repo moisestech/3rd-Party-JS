@@ -1,24 +1,33 @@
 ## **1.3.1 Server-side JavaScript Generation**
 
-Instead of serving a static JavaScript file that contains your widget code, you’ll write a server application that generates a JavaScript file for every request (see figure 1.8).
+Instead of serving a static JavaScript file that contains your widget code, you’ll write a server application that generates a JavaScript file for every request `(see figure 1.8)`.
 
-Because your server has access to your weather database, it can inject the requested weather data into the outputted JavaScript file. This means that the JavaScript file will contain all the code and data necessary to render the weather widget on the publisher’s page, without having to make any additional requests.
+Because your server has access to your weather database, it can inject the requested weather data into the outputted JavaScript file.  
+This means that the JavaScript file will contain all the code and data necessary to render the weather widget on the publisher’s page, without having to make any additional requests.
 
-This server application could be written in any programming language or platform that can execute in a server environment, like Ruby, PHP, Java, ASP.NET—even server-side JavaScript. These are all fine choices, but we’ll walk you through an example written in Python, a popular scripting language. This example also uses Flask, a Python microframework for building small web applications. If you’re not familiar with Python, don’t sweat it—the code is easy to follow. If you’d like to try the example in listing 1.5 yourself, consult the companion source code, which also contains instruc- tions for installing both Python (2.x) and Flask.
+This server application could be written in any programming language or platform that can execute in a server environment, like Ruby, PHP, Java, ASP.NET—even server-side JavaScript.  
+These are all fine choices, but we’ll walk you through an example written in Python, a popular scripting language.  
+This example also uses Flask, a Python microframework for building small web applications.  
+If you’re not familiar with Python, don’t sweat it—the code is easy to follow.  
+If you’d like to try the example in `listing 1.5` yourself, consult the companion source code, which also contains instructions for installing both Python (2.x) and Flask.
 
-**Listing 1.5 Server implementation of widget.js, written in Python and Flask - server.py**
+**`Listing 1.5` Server implementation of widget.js, written in Python and Flask - server.py**
 
 After this server endpoint is up and running, a `<script>` request to `http://weathernearby.com/widget.js?zip=94105 should return the following JavaScript code.`
 
 This renders the sample widget you saw at the beginning of this section (see
-figure 1.7). Also, note that the fact that this code is served from a Python application
-is completely transparent to the requesting browser.
+`figure 1.7`).  
+Also, note that the fact that this code is served from a Python application is completely transparent to the requesting browser.
 
 Now, when we said this would be a bare-bones example earlier, we weren’t kidding.
 
-This outputs a completely unstyled weather widget that offers absolutely no interaction with the user. It looks awful, and has probably put your fledgling weather company in jeopardy. But it works, and it illustrates the interaction between publisher websites and third-party code.
+This outputs a completely unstyled weather widget that offers absolutely no interaction with the user.  
+It looks awful, and has probably put your fledgling weather company in jeopardy.  
+But it works, and it illustrates the interaction between publisher websites and third-party code.
 
-Some of the techniques illustrated here, like using document.write and server-side Python, aren’t the only ways to generate widgets. And for reasons we’ll explain later, they’re even frowned upon. In future chapters, we’ll explore alternate, better solutions, and tackle more complicated features like stylesheets, server communication via AJAX, and user sessions.
+Some of the techniques illustrated here, like using `document.write` and **server-side Python**, aren’t the only ways to generate widgets.  
+And for reasons we’ll explain later, they’re even frowned upon.  
+In future chapters, we’ll explore alternate, better solutions, and tackle more complicated features like stylesheets, server communication via AJAX, and user sessions.
 
 ---
 
