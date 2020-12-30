@@ -2,23 +2,13 @@
 
 ## 1.4.2 Shared environment
 
-For a given web environment, there’s only one global variable namespace, shared by
-every piece of code executing on the page. Not only must you take care not to pollute
-that namespace with your own global variables, you have to recognize that other
+- For a given web environment, there’s only one global variable namespace, shared by every piece of code executing on the page.
+- Not only must you take care not to pollute that namespace with your own global variables, you have to recognize that other scripts, possibly other third-party applications like yours, have the capability of modifying standard objects and prototypes that you might depend on.
 
-scripts, possibly other third-party applications like yours, have the capability of modify-
-ing standard objects and prototypes that you might depend on.
-
-For example, consider the global JSON object. In modern browsers, this is a native
-
-browser object that can parse and stringify JSON (JavaScript Object Notation) blaz-
-ingly fast. Unfortunately, it can be trivially modified by anyone. If your application
-
-depends on this object functioning correctly, and it’s altered in an incompatible way
-by another piece of code, your application might produce incorrect results or just
-plain crash.
-The following sample code illustrates how easy it is to modify the global JSON
-object by using simple variable assignment:
+- For example, consider the global JSON object. In modern browsers, this is a native browser object that can parse and stringify JSON (JavaScript Object Notation) blazingly fast.
+- Unfortunately, it can be trivially modified by anyone.
+- If your application depends on this object functioning correctly, and it’s altered in an incompatible way by another piece of code, your application might produce incorrect results or just plain crash.
+- The following sample code illustrates how easy it is to modify the global JSON object by using simple variable assignment:
 
 ```javascript
 JSON.stringify = function () {
@@ -26,14 +16,10 @@ JSON.stringify = function () {
 };
 ```
 
-You might think to yourself, “Why would anyone do such a thing?” Web developers
-often load their own JSON methods to support older browsers that don’t provide
-
-native methods. The bad news is that some of these libraries are incompatible in sub-
-tle ways. For example, older versions of the popular Prototype JavaScript library pro-
-vide JSON methods that produce different output than native methods when handling
-
-undefined values:
+- You might think to yourself, “Why would anyone do such a thing?”
+- Web developers often load their own JSON methods to support older browsers that don’t provide native methods.
+- The bad news is that some of these libraries are incompatible in subtle ways.
+- For example, older versions of the popular Prototype JavaScript library provide JSON methods that produce different output than native methods when handling undefined values:
 
 ```javascript
 // Prototype.js
@@ -45,27 +31,20 @@ JSON.stringify([1, 2, undefined])
 => "[1, 2, null]"
 ```
 
-The JSON object is just one example of a native browser object that can be altered by
-competing client code; there are hundreds of others. Over the course of this book
-we’ll look at solutions for restoring or simply avoiding these objects.
-Similarly, the DOM is another global application namespace you have to worry
+- The JSON object is just one example of a native browser object that can be altered by competing client code; there are hundreds of others.
+- Over the course of this book we’ll look at solutions for restoring or simply avoiding these objects.
+- Similarly, the DOM is another global application namespace you have to worry about.
+- There’s only one DOM tree for a given web page, and it’s shared by all applications running on the page.
+- This means taking special care when you interact with it.
 
-about. There’s only one DOM tree for a given web page, and it’s shared by all applica-
-tions running on the page. This means taking special care when you interact with it.
+- Any new elements you insert into the DOM have to coexist peacefully with existing elements, and not interfere with other scripts that are querying the DOM.
 
-Any new elements you insert into the DOM have to coexist peacefully with existing ele-
-ments, and not interfere with other scripts that are querying the DOM. Similarly, your
-
-DOM queries can inadvertently select elements that don’t belong to you if they’re not
-scoped properly. The opposite is also true; other applications might accidentally
-query your elements if you haven’t carefully chosen unique IDs and class names.
-Since your code exists in the same execution environment as other scripts, security
-also becomes a taller order. Not only do you have to protect against improper use by
-users of your application, you also have to consider other scripts operating on the
-page, or even the publisher, to be a potential threat. For example, if you’re writing a
-widget or script that ties to a larger, popular service, like a social networking website,
-publishers might have a vested interest in attempting to fake user interactions with
-their own pages.
+- Similarly, your DOM queries can inadvertently select elements that don’t belong to you if they’re not scoped properly.
+- The opposite is also true; other applications might accidentally query your elements if you haven’t carefully chosen unique IDs and class names.
+- Since your code exists in the same execution environment as other scripts, security also becomes a taller order.
+- Not only do you have to protect against improper use by users of your application, you also have to consider other scripts operating on the page, or even the publisher, to be a potential threat.
+- For example, if you’re writing a widget or script that ties to a larger, popular service, like a social networking website,
+  publishers might have a vested interest in attempting to fake user interactions with their own pages.
 
 ---
 
