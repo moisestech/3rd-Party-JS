@@ -41,30 +41,39 @@ The rest happens automatically.
 ### **ACTIVE SCRIPTS**
 
 Not all analytics scripts behave passively.
-Mixpanel is an analytics company whose product tracks publisher-defined user actions to generate statistics about website visitors or application users.  
-Instead of generic web statistics, like page views or visitors, Mixpanel has publishers define key application events they want to track.  
+**Mixpanel** is an analytics company whose product **tracks publisher-defined user actions to generate statistics about website visitors or application users**.  
+Instead of generic web statistics, like page views or visitors, **Mixpanel has publishers define key application events they want to track**.  
 Some example events might be “user clicked the signup button,” or “user played a video.”  
 Publishers write simple JavaScript code `(see listing 1.3)` to identify when the action takes place and then call a tracking method provided by Mixpanel’s third-party scripts to register the event with their service.  
-Mixpanel then assembles this data into interesting funnel statistics to help answer questions like, “What series of steps do users take before upgrading the product?”
+Mixpanel then **assembles this data into interesting funnel statistics to help answer questions** like, “What series of steps do users take before upgrading the product?”
 
 **Listing 1.4 Tracking user sighups with the Mixpanel JS API**
 
-There’s something else interesting about Mixpanel’s use of third-party scripting. In actuality, Mixpanel provides a set of client-side functions that communicate with their web service API—a set of server HTTP endpoints that both track and report on events.
+There’s something else interesting about Mixpanel’s use of third-party scripting.  
+In actuality, Mixpanel **provides a set of client-side functions that communicate with their web service API**
+— a set of **server HTTP endpoints that both track and report on events**.
 
 This is a practical use case that can be extended to any number of different services. Let’s learn more.
 
-**Figure 1.3 An example commenting section on a pubglisher's website, powere by the Disques commenting widget**
+`Figure 1.3` An example commenting section on a publisher's website, powered by the **Disques** commenting widget
 
-Incredibly, all of this magic also comes in a widget flavor.
+Incredibly, all of this magic also comes in a widget flavor.  
 Publishers can embed the maps application on their own web pages using some simple JavaScript code snippets obtained from the Google Maps website. On top of this, Google provides a set of public functions for publishers to modify the map contents.
 
-Let’s see how simple it is to embed an interactive map on your web page using Google Maps (listing 1.2). This code example begins by first pointing to the Maps JavaScript library using a simple script include. Then, when the body’s onload handler fires, you check whether the current browser is compatible, and if so, initialize a new map and center it at the given coordinates.1
-
+Let’s see how simple it is to embed an interactive map on your web page using Google Maps `(listing 1.2)`. This code example begins by first pointing to the Maps JavaScript library using a simple script include.  
+Then, **when the body’s onload handler fires**, you **check whether the current browser is compatible**, and if so, **initialize a new map and center it at the given coordinates**.  
 We’re done, and all it took was roughly 10 lines of code—powerful stuff!
 
 **Listing 1.2 Initializing the Google Maps Widget**
 
-We just looked at two examples of embedded widgets. But really, any application idea is fair game for embedding on a publisher’s page. In our own travels, we’ve come across a wide variety of widgets: content management widgets, widgets that play real-time video, widgets that let you chat in real time with a customer support person, and so on. If you can dream it, you can embed it.
+We just looked at two examples of embedded widgets.  
+But really, any application idea is fair game for embedding on a publisher’s page.  
+In our own travels, we’ve come across a wide variety of widgets:
+
+- content management widgets
+- widgets that play real-time video
+- widgets that let you chat in real time with a customer support person, and so on.
+  If you can dream it, you can embed it.
 
 ---
 
