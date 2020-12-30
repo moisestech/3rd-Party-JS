@@ -2,24 +2,23 @@
 
 ## 2.3 The initial script file
 
-At this point, the publisher is using your script include snippet, which is requesting a
-single script file from your servers and loading it onto their page. This file, widget.js, is
-the main entry point for your third-party application. It’s responsible for the whole
-show: loading any additional code or resources, fetching data about the product, and
-ultimately rendering the widget on the page.
-Here’s a high-level tour of widget.js.
+- At this point, the publisher is using your script include snippet, which is requesting a single script file from your servers and loading it onto their page.
+- This file, `widget.js`, is the main entry point for your third-party application.
+- It’s responsible for the whole show:
 
-NAMESPACES IN JAVASCRIPT You’ve probably seen namespace objects in
+1. loading any additional code or resources,
+2. fetching data about the product,
+3. and ultimately rendering the widget on the page.
 
-JavaScript before. For example, the jQuery library puts all of its public meth-
-ods behind the jQuery object (jQuery also aliases this object to $ for conve-
-nience). Namespaces are common for nearly all JavaScript libraries, and are
+Here’s a high-level tour of `widget.js`.
 
-just good programming practice.
-For the most part, widget.js is empty; it’s just some boilerplate code that we’ll fill in
+**NAMESPACES IN JAVASCRIPT**
 
-shortly. But before we look at implementations to some of these stubbed-out func-
-tions, we want to highlight a few things.
+- You’ve probably seen namespace objects in JavaScript before.
+- For example, the jQuery library puts all of its public meth- ods behind the jQuery object (jQuery also aliases this object to $ for convenience).
+- Namespaces are common for nearly all JavaScript libraries, and are just good programming practice.
+- For the most part, widget.js is empty; it’s just some boilerplate code that we’ll fill in shortly.
+- But before we look at implementations to some of these stubbed-out functions, we want to highlight a few things.
 
 ---
 
