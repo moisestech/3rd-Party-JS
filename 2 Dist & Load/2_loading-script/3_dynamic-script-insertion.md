@@ -23,31 +23,31 @@
 - It’s best to avoid declaring global variables, which could interfere with—or be interfered with by—other JavaScript code.
 
 **ERROR-FREE <SCRIPT> TAG INSERTION**
-In the previous example, the `<script>` tag element is inserted before another found script element on the page.
-Alternatively, you could append the `<script>` tag to the head or body, but that isn’t always safe.
-In some browsers it’s possible to load a web page without a head element (admittedly, rare).
-And appending to the body element before it’s finished parsing can sometimes cause browser exceptions.
-Inserting before a found script element is a surefire way to load a script file without running into these gotchas.
 
-And you can always guarantee there’s at least one script element: the one that loaded your application.
-You might be wondering to yourself, “Why are we paying so much attention to this include snippet?”
-When it comes to third-party development, first impressions count.
-After you distribute this include snippet to publishers, it’ll be incredibly difficult to get them to change this code later.
-And unfortunately, since you likely don’t have access to the servers hosting their website, you can’t change it for them.
-It’s a good idea to come out with your best solution first.
+- In the previous example, the `<script>` tag element is inserted before another found script element on the page.
+- Alternatively, you could append the `<script>` tag to the head or body, but that isn’t always safe.
+- In some browsers it’s possible to load a web page without a head element (admittedly, rare).
+- And appending to the body element before it’s finished parsing can sometimes cause browser exceptions.
+- Inserting before a found script element is a surefire way to load a script file without running into these gotchas.
+- And you can always guarantee there’s at least one script element: the one that loaded your application.
+- You might be wondering to yourself, “Why are we paying so much attention to this include snippet?”
+- When it comes to third-party development, first impressions count.
+- After you distribute this include snippet to publishers, it’ll be incredibly difficult to get them to change this code later.
+- And unfortunately, since you likely don’t have access to the servers hosting their website, you can’t change it for them.
+- It’s a good idea to come out with your best solution first.
 
 **FASTER SCRIPT LOADING**
-If you’re interested in learning more techniques for loading your scripts faster, you’ll want to read
-the **High Performance Web Sites series of books by Steve Souders (O’Reilly)**.
 
-Steve covers every conceivable way of loading scripts, some of which can translate to big performance savings in your applications.
-We’ll cover some of these techniques as they pertain to third-party scripts in chapter 9 on performance.
+- If you’re interested in learning more techniques for loading your scripts faster, you’ll want to read the **High Performance Web Sites series of books by Steve Souders (O’Reilly)**.
 
-We’re moving on for now, but we’ll revisit the script include snippet later in this chapter.
-In the meantime, pretend you’ve already given the asynchronous include snippet to one of your store’s loyal fans, which they’ve added to their web page’s HTML source and published.
+- Steve covers every conceivable way of loading scripts, some of which can translate to big performance savings in your applications.
+- We’ll cover some of these techniques as they pertain to third-party scripts in chapter 9 on performance.
 
-This will cause your application’s initial script file, `widget.js`, to load on their web page.
-Let’s take a look inside this script file and see what it’s doing.
+- We’re moving on for now, but we’ll revisit the script include snippet later in this chapter.
+- In the meantime, pretend you’ve already given the asynchronous include snippet to one of your store’s loyal fans, which they’ve added to their web page’s HTML source and published.
+
+- This will cause your application’s initial script file, `widget.js`, to load on their web page.
+- Let’s take a look inside this script file and see what it’s doing.
 
 ---
 
