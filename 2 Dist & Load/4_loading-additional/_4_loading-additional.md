@@ -2,13 +2,13 @@
 
 ## 2.4 Loading Additional Files
 
-It’s possible that your third-party script might only rely on a single JavaScript file. But it’s more likely that, like most web applications, your script will depend on a number of supporting files. These could be files of your own (such as a script that contains helper functions), or files that contain helpful JavaScript libraries, like jQuery or
+- It’s possible that your third-party script might only rely on a single JavaScript file.
+- But it’s more likely that, like most web applications, your script will depend on a number of supporting files.
+- These could be files of your own (such as a script that contains helper functions), or files that contain helpful JavaScript libraries, like jQuery or Prototype.js.
+- Often you’ll need to have these files in place before your script can perform any further actions.
 
-Prototype.js. Often you’ll need to have these files in place before your script can perform any further actions.
-
-You could always expand the script include snippet to include any additional files
-you intend to load. For example, you could ask publishers to include the following
-code on their pages:
+- You could always expand the script include snippet to include any additional files you intend to load.
+- For example, you could ask publishers to include the following code on their pages:
 
 ```html
 <script src="http://camerastork.com/widget/jquery.js"></script>
@@ -16,20 +16,16 @@ code on their pages:
 <script src="http://camerastork.com/widget.js"></script>
 ```
 
-This will work; it loads the supporting files (jquery.js, helpers.js) before the main wid-
-get file (widget.js). But altering the script include snippet like this is a really bad idea.
+- This will work; it loads the supporting files (jquery.js, helpers.js) before the main wid- get file (widget.js).
+- But altering the script include snippet like this is a really bad idea.
+- Colossally bad.
+- It’s bad because it’s incredibly inflexible; you’re committed to always loading these files.
+- If you ever need to change what files you’re depending on, you won’t be able to, because this code is stuck on the publishers’ pages.
+- And getting publishers to update their HTML source with new code is notoriously difficult.
 
-Colossally bad. It’s bad because it’s incredibly inflexible; you’re committed to always
-loading these files. If you ever need to change what files you’re depending on, you
-
-won’t be able to, because this code is stuck on the publishers’ pages. And getting pub-
-lishers to update their HTML source with new code is notoriously difficult.
-
-What you want to do is stick with the original script include snippet, which loads a
-single script file that serves as the entry point for the application. After that initial
-script is loaded, you’ll then load any additional supporting files dynamically using
-JavaScript. In this section, you’ll learn how to do that, beginning with plain JavaScript
-files that you’ve written, and then moving on to popular JavaScript libraries.
+- What you want to do is stick with the original script include snippet, which loads a single script file that serves as the entry point for the application.
+- After that initial script is loaded, you’ll then load any additional supporting files dynamically using JavaScript.
+- In this section, you’ll learn how to do that, beginning with plain JavaScript files that you’ve written, and then moving on to popular JavaScript libraries.
 
 ## **Sub-Chapters**
 
