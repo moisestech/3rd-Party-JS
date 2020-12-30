@@ -11,53 +11,50 @@ This is your path to asynchronous script loading in browsers old and new.
 
 Here’s how the script include snippet looks using dynamic `<script>` tag insertion.
 
+``
+
 **Listing 2.1 Asynchronous Script Include**
 
-Let's discuss some interesting points about this example. You’ll notice that the script
-element’s async attribute is set to true. This isn’t just for posterity—Opera and some
+Let's discuss some interesting points about this example. You’ll notice that the script element’s async attribute is set to true
 
-older versions of Firefox require this attribute to be set in order for the script to be exe-
-cuted as soon as it is downloaded. Otherwise, Opera and Firefox will attempt to pre-
-serve execution order (similar to the defer attribute). Second, you’ll notice that this
+This isn’t just for posterity—Opera and some older versions of Firefox require this attribute to be set in order for the script to be executed as soon as it is downloaded.
 
-entire snippet is wrapped in an immediately-invoked function expression, or IIFE. This
+Otherwise, Opera and Firefox will attempt to preserve execution order (similar to the defer attribute).
 
-prevents the script and entry variables from leaking into the global scope. Remem-
-ber: this code snippet is executing on the publisher’s page, which could be home to
+Second, you’ll notice that this entire snippet is wrapped in an **immediately-invoked function expression**, or **IIFE**.
 
-any number of additional, unknown scripts. It’s best to avoid declaring global vari-
-ables, which could interfere with—or be interfered with by—other JavaScript code.
+This prevents the script and entry variables from leaking into the global scope.
 
-ERROR-FREE <SCRIPT> TAG INSERTION In the previous example, the <script>
-tag element is inserted before another found script element on the page.
-Alternatively, you could append the <script> tag to the head or body, but
-that isn’t always safe. In some browsers it’s possible to load a web page without
-a head element (admittedly, rare). And appending to the body element
+Remember: this code snippet is executing on the publisher’s page, which could be home to any number of additional, unknown scripts.
 
-before it’s finished parsing can sometimes cause browser exceptions. Insert-
-ing before a found script element is a surefire way to load a script file without
+It’s best to avoid declaring global variables, which could interfere with—or be interfered with by—other JavaScript code.
 
-running into these gotchas. And you can always guarantee there’s at least one
-script element: the one that loaded your application.
-You might be wondering to yourself, “Why are we paying so much attention to this
-include snippet?” When it comes to third-party development, first impressions count.
-After you distribute this include snippet to publishers, it’ll be incredibly difficult to get
-them to change this code later. And unfortunately, since you likely don’t have access
-to the servers hosting their website, you can’t change it for them. It’s a good idea to
-come out with your best solution first.
-FASTER SCRIPT LOADING If you’re interested in learning more techniques for
-loading your scripts faster, you’ll want to read the High Performance Web Sites
-series of books by Steve Souders (O’Reilly). Steve covers every conceivable
-way of loading scripts, some of which can translate to big performance savings
-in your applications. We’ll cover some of these techniques as they pertain to
-third-party scripts in chapter 9 on performance.
+**ERROR-FREE <SCRIPT> TAG INSERTION**
+In the previous example, the `<script>` tag element is inserted before another found script element on the page.
+Alternatively, you could append the `<script>` tag to the head or body, but that isn’t always safe.
+In some browsers it’s possible to load a web page without a head element (admittedly, rare).
+And appending to the body element before it’s finished parsing can sometimes cause browser exceptions.
+Inserting before a found script element is a surefire way to load a script file without running into these gotchas.
 
-We’re moving on for now, but we’ll revisit the script include snippet later in this chap-
-ter. In the meantime, pretend you’ve already given the asynchronous include snippet
+And you can always guarantee there’s at least one script element: the one that loaded your application.
+You might be wondering to yourself, “Why are we paying so much attention to this include snippet?”
+When it comes to third-party development, first impressions count.
+After you distribute this include snippet to publishers, it’ll be incredibly difficult to get them to change this code later.
+And unfortunately, since you likely don’t have access to the servers hosting their website, you can’t change it for them.
+It’s a good idea to come out with your best solution first.
 
-to one of your store’s loyal fans, which they’ve added to their web page’s HTML source
-and published. This will cause your application’s initial script file, widget.js, to load on
-their web page. Let’s take a look inside this script file and see what it’s doing.
+**FASTER SCRIPT LOADING**
+If you’re interested in learning more techniques for loading your scripts faster, you’ll want to read
+the **High Performance Web Sites series of books by Steve Souders (O’Reilly)**.
+
+Steve covers every conceivable way of loading scripts, some of which can translate to big performance savings in your applications.
+We’ll cover some of these techniques as they pertain to third-party scripts in chapter 9 on performance.
+
+We’re moving on for now, but we’ll revisit the script include snippet later in this chapter.
+In the meantime, pretend you’ve already given the asynchronous include snippet to one of your store’s loyal fans, which they’ve added to their web page’s HTML source and published.
+
+This will cause your application’s initial script file, `widget.js`, to load on their web page.
+Let’s take a look inside this script file and see what it’s doing.
 
 ---
 
