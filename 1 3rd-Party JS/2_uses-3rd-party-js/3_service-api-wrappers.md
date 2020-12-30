@@ -6,13 +6,17 @@ In case you’re not familiar with them, **web service APIs are HTTP server endp
 
 Unlike server applications that return HTML to be consumed by a web browser, **these endpoints accept and respond with structured data—usually in JSON or XML formats—to be consumed by a computer program**.
 
-This program could be a** desktop application** or an **application running on a web server**, or it could even be **client JavaScript code hosted on a web page** but executing in a user’s browser.
+This program could be a **desktop application** or an **application running on a web server**,  
+or it could even be **client JavaScript code** hosted on a web page but **executing in a user’s browser**.
 
-This last use case—JavaScript code running in the browser—is what we’re most interested in.
+This last use case - **JavaScript code running in the browser—is what we’re most interested in**.
 
-**Web service API providers can give developers building on their platform—often called integrators—third-party scripts that simplify client-side access to their API**.
+**Web service API providers can give developers building on their platform—often called integrators**.
+— third-party scripts that simplify client-side access to their API\*\*.
 
-We like to call these scripts **web service API wrappers**, since they’re effectively **JavaScript libraries that “wrap” the functionality of a web service API**. **EXAMPLE: THE FACEBOOK GRAPH API**
+We like to call these scripts **web service API wrappers**, since they’re effectively **JavaScript libraries that “wrap” the functionality of a web service API**.
+
+**EXAMPLE: THE FACEBOOK GRAPH API**
 
 ### **Example: Developer Jill**
 
@@ -31,20 +35,20 @@ To implement her dynamic resume, **Jill uses Facebook’s Graph API**.
 
 This is a **web service API from Facebook that enables software applications to access or modify live Facebook user data** (with permission of course).
 
-**Figure 1.5 At the bottom of Jill's resume, the visitor can see friends they share with Jill**
+`Figure 1.5` **At the bottom of Jill's resume, the visitor can see friends they share with Jill**
 
 **Facebook also has a JavaScript library that provides functions for communicating with the API.**
 
 Using this library, **it’s possible for Jill to write client-side code that can find and display friends common to herself and a visitor to her resume**.
 
-_Figure 1.6_ illustrates the **sequence of events that occur between the browser and the two servers**.  
+`Figure 1.6` illustrates the **sequence of events that occur between the browser and the two servers**.  
 [**IMAGE NEEDED**]
 
-**Firegure 1.6 Embedding Facebook content in a website using client-side JavaScript**
+**`Firegure 1.6` Embedding Facebook content in a website using client-side JavaScript**
 
-_Listing 1.4_ Shows the code to implement this feature on her resume. To keep things simple, this example uses jQuery, a JavaScript library, to simplify DOM operations. Learn more at http://jquery.com.
+`Listing 1.4` Shows the code to implement this feature on her resume. To keep things simple, this example uses jQuery, a JavaScript library, to simplify DOM operations. Learn more at http://jquery.com.
 
-**Listing 1.4 Using Facebook's Graph API to fetch and display a list of mutual friends**
+`Listing 1.4` **Using Facebook's Graph API to fetch and display a list of mutual friends**
 
 Jill managed to embed some powerful functionality in her resume, all using a small amount of client-side JavaScript. With this impressive piece of work, she should have no problem landing a top-flight software job.
 
