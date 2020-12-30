@@ -2,18 +2,18 @@
 
 ## **1.2 The many uses of Third-Party Javascript**
 
-We’ve established that **third-party JavaScript is code that’s being executed on someone else’s website**.
+We’ve established that **third-party JavaScript is code that’s being executed on someone else’s website**.  
 This gives **third-party code access to that website’s HTML elements and JavaScript context**.
 
 You can then manipulate that page in a number of ways, which might include:
 
 1. **creating new elements on the DOM (Document Object Model).**
 2. **inserting custom stylesheets**
-3. **and registering browser events for capturing user actions.**
+3. and **registering browser events for capturing user actions.**
 
 **For the most part, third-party scripts can perform any operation you might use JavaScript for on your own website or application, but instead, on someone else’s.**
 
-**Figure 1.3 A Script-Loading snippet placed on the publisher's web page loads third-party JavaScript code.**
+**`Figure 1.3` A Script-Loading snippet placed on the publisher's web page loads third-party JavaScript code.**
 
 Armed with the power of remote web page manipulation, the question remains:
 
@@ -21,10 +21,9 @@ Armed with the power of remote web page manipulation, the question remains:
 
 In this section, we’ll look at some real-world use cases of third-party scripts:
 
-- Embedded widgets—Small interactive applications embedded on the publisher’s web page
-
-1. Analytics and metrics—For gathering intelligence about visitors and how they interact with the publisher’s website.
-2. Web service API wrappers—For developing client-side applications that communicate with external web services.
+1. **Embedded widgets** — Small interactive applications embedded on the publisher’s web page
+2. **Analytics and metrics** — For gathering intelligence about visitors and how they interact with the publisher’s website.
+3. **Web service API wrappers** — For developing client-side applications that communicate with external web services.
 
 This isn’t a complete list, but should give you a solid idea of what third-party JavaScript is capable of.
 We’ll start with an in-depth look at the first item: **embedded widgets**.
