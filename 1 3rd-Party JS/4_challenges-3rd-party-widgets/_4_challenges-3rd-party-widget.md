@@ -2,7 +2,11 @@
 
 ## 1.4 Challenges Of Third-Party Development
 
-You’ve learned how third-party JavaScript is a powerful way to write highly distributable applications. But writing scripts that run on other people’s websites carries a unique set of challenges distinct from regular JavaScript programming. Specifically, your code is being executed in a DOM environment that you don’t control, on a different domain. This means you have to contend with a number of unexpected complexities, like an unknown web page context, a JavaScript environment shared with other first- and third-party scripts, and even restrictions put in place by the browser. We’ll take a quick look at what each of these entails.
+- You’ve learned how third-party JavaScript is a powerful way to write highly distributable applications.
+- But writing scripts that run on other people’s websites carries a unique set of challenges distinct from regular JavaScript programming.
+- Specifically, your code is being executed in a DOM environment that you don’t control, on a different domain.
+- This means you have to contend with a number of unexpected complexities, like an unknown web page context, a JavaScript environment shared with other first- and third-party scripts, and even restrictions put in place by the browser.
+- We’ll take a quick look at what each of these entails.
 
 ## **Sub-chapters**
 
