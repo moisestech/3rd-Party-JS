@@ -40,6 +40,8 @@ The rest happens automatically.
 
 ### **ACTIVE SCRIPTS**
 
+### Mixpanel
+
 Not all analytics scripts behave passively.
 **Mixpanel** is an analytics company whose product **tracks publisher-defined user actions to generate statistics about website visitors or application users**.  
 Instead of generic web statistics, like page views or visitors, **Mixpanel has publishers define key application events they want to track**.  
