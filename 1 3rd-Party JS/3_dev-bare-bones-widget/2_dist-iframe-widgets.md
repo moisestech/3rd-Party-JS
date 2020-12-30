@@ -2,9 +2,12 @@
 
 ## **1.3.2 Distributing Widgets as iFrames**
 
-If you’re fairly experienced with web development, you might be thinking to yourself,“Isn’t it easier to distribute this widget as an iframe?” At first blush it might seem so, but there are not-so-obvious differences that make third-party scripts the better implementation choice. In order to understand why, let’s first see how you can re-create the preceding example widget using iFrames.
+- If you’re fairly experienced with web development, you might be thinking to yourself,“Isn’t it easier to distribute this widget as an iframe?”
+- At first blush it might seem so, but there are not-so-obvious differences that make third-party scripts the better implementation choice.
+- In order to understand why, let’s first see how you can re-create the preceding example widget using iFrames.
 
-In case you’re not familiar with them, iframes are block-level HTML elements designed to embed external content served from a URL. You could easily re-create the weather widget example using strictly an iframe element, like so:
+- In case you’re not familiar with them, iframes are block-level HTML elements designed to embed external content served from a URL.
+- You could easily re-create the weather widget example using strictly an iframe element, like so:
 
 ```html
 <iframe
@@ -13,25 +16,49 @@ In case you’re not familiar with them, iframes are block-level HTML elements d
 />
 ```
 
-- You’ll notice the target src attribute has changed: it’s no longer pointing to a JavaScript file, but instead to an HTML document. This time your server endpoint will return a fully formed HTML document containing the widget markup, completely avoiding the need for JavaScript. You’ll also notice the dimensions of the widget are Create HTTP response object to return string to browser. Set response’s Content-Type header to application/ javascript so it’s interpreted by browser as JavaScript code.
+- You’ll notice the target src attribute has changed: it’s no longer pointing to a JavaScript file, but instead to an HTML document.
+- This time your server endpoint will return a fully formed HTML document containing the widget markup, completely avoiding the need for JavaScript.
+- You’ll also notice the dimensions of the widget create an HTTP response object to return string to browser.
+- Set response’s Content-Type header to application/ javascript so it’s interpreted by browser as JavaScript code.
 
-- Challenges of third-party development 17 provided as part of the iframe’s style attribute. Iframe elements don’t expand to fit their contents, and need to be given explicit dimensions.
+- Challenges of third-party development 17 provided as part of the iframe’s style attribute.
+- Iframe elements don’t expand to fit their contents, and need to be given explicit dimensions.
 
-- Using an iframe like this should produce the same output as the JavaScript exam- ple. So why use JavaScript over iframes, even for a simple example like this? There are many reasons, most of which revolve around a particular attribute of iframes: that external content loaded inside an iframe can’t be accessed by the parent page (the publisher’s page), and vice versa.
+- Using an iframe like this should produce the same output as the JavaScript example.
+- So why use JavaScript over iframes, even for a simple example like this?
+- There are many reasons, most of which revolve around a particular attribute of iframes:
+  - that external content loaded inside an iframe can’t be accessed by the parent page (the publisher’s page), and vice versa.
 
-- Flexibility—If you ever want to change the dimensions of the widget, you’ll be out of luck. Since the iframe dimensions are fixed on the iframe element on the parent page, and those attributes can’t be modified from content loaded inside the iframe, there’s no way to dynamically resize the widget.
+### **Flexibility**
 
-- Aesthetics—The look and feel of the widget will need to be completely independent of the parent page’s styles. The widget won’t be able to inherit basic styles, like font family, size, or color.
+- If you ever want to change the dimensions of the widget, you’ll be out of luck.
+- Since the iframe dimensions are fixed on the iframe element on the parent page, and those attributes can’t be modified from content loaded inside the iframe, there’s no way to dynamically resize the widget.
 
-- Interaction—Will the widget need to read or modify the publisher’s DOM? What if the publisher needs to interact with the contents of the widget? Could multiple instances of the widget communicate with each other? None of these are possible with static iframes.
+### **Aesthetics**
 
-- Reporting—Did the browser user actually view the widget? How much time did they spend on the page before viewing it? Retrieving this and other valuable statistics requires JavaScript running on the publisher’s page.
+- The look and feel of the widget will need to be completely independent of the parent page’s styles.
 
-- These are just a few examples, but you’re probably beginning to see a trend. Iframes may be the simplest mechanism for distributing the weather widget example, but in doing so you’ll lose many compelling abilities offered by third-party JavaScript.
+- The widget won’t be able to inherit basic styles, like font family, size, or color.
 
-- But don’t let this sour your opinion of iframes. They’re an invaluable asset in the third-
-  party JavaScript developer’s toolset, and we’ll use them frequently for a number of dif-
-  ferent tasks over the course of this book.
+## **Interaction**
+
+- Will the widget need to read or modify the publisher’s DOM?
+- What if the publisher needs to interact with the contents of the widget?
+- Could multiple instances of the widget communicate with each other?
+- None of these are possible with static iframes.
+
+## Reporting
+
+- Did the browser user actually view the widget?
+
+- How much time did they spend on the page before viewing it?
+- Retrieving this and other valuable statistics requires JavaScript running on the publisher’s page.
+
+- These are just a few examples, but you’re probably beginning to see a trend.
+- Iframes may be the simplest mechanism for distributing the weather widget example, but in doing so you’ll lose many compelling abilities offered by third-party JavaScript.
+
+- But don’t let this sour your opinion of iframes.
+- They’re an invaluable asset in the third-party JavaScript developer’s toolset, and we’ll use them frequently for a number of different tasks over the course of this book.
 
 ---
 
