@@ -2,38 +2,43 @@
 
 ## 2.2.2 Nonblocking Scripts with Async and defer
 
-Browser vendors have long recognized that synchronous script loading isn’t ideal. To
-remedy this, the W3C has introduced two helpful attributes for the <script> tag—
-defer and async —that indicate that the file can be downloaded without blocking the
-browser.
-THE DEFER SCRIPT ATTRIBUTE
-The first of these, defer, was first introduced as part of HTML4. When specified on a
+- Browser vendors have long recognized that synchronous script loading isn’t ideal.
+- To remedy this, the W3C has introduced two helpful attributes for the <script> tag— **defer and async** — that indicate that the file can be downloaded without blocking the browser.
 
-<script> tag, it tells the browser that the script file won’t generate any document con-
-tent (using document.write), and can safely be downloaded without blocking the page. Then, when the browser is finished processing the page, it executes any
-deferred scripts in the order they were encountered (see figure 2.3).
-The following is an example of the same <script> tag we saw earlier, this time
-sporting the defer attribute:
-<script defer
-src="http://camerastork.com/widget.js?product=1234"></script>
+**THE DEFER SCRIPT ATTRIBUTE**
 
-The defer attribute has been around for some time, and enjoys pretty broad support
-among major browsers. The only notable exception is Opera, for which the attribute
-is ignored, causing the <script> tag to be treated as a regular blocking one.
-XHTML AND REQUIRED ATTRIBUTE VALUES If this value-less use of the defer
-attribute looks funny, it might be because you’re used to working with
-XHTML. In an XHTML world, the defer example would be written like this:
+- The first of these, defer, was first introduced as part of HTML4. When specified on a `<script>` tag, it tells the browser that the script file won’t generate any document content (using document.write), and can safely be downloaded without blocking the page.
+- Then, when the browser is finished processing the page, it executes any deferred scripts in the order they were encountered (see `figure 2.3`).
+  - The following is an example of the same `<script>` tag we saw earlier, this time
+    sporting the defer attribute:
 
-<script defer="defer"
-src="http://camerastork.com/widget.js?product=1234"></script>
+```html
+<script defer src="http://camerastork.com/widget.js?product=1234"></script>
+```
 
-This is because XHTML requires attributes to have values, whereas HTML
-doesn’t. The code examples in this book are all written in HTML and not
-XHTML.
+- The defer attribute has been around for some time, and enjoys pretty broad support among major browsers.
+- The only notable exception is Opera, for which the attribute is ignored, causing the `<script>` tag to be treated as a regular blocking one.
 
-**Figure 2.3 Two Scripts (A and B) loaded using both the defer and async attributes. Files loaded with the async attribute execute as soon as they're downloaded, whereas files loaded with defer wait unitl the docuemnt is fully parsed.**
+**XHTML AND REQUIRED ATTRIBUTE VALUES**
 
-THE ASYNC SCRIPT ATTRIBUTE
+- If this value-less use of the defer attribute looks funny, it might be because you’re used to working with
+  XHTML. In an XHTML world, the defer example would be written like this:
+
+```html
+<script
+  defer="defer"
+  src="http://camerastork.com/widget.js?product=1234"
+></script>
+```
+
+- This is because XHTML requires attributes to have values, whereas HTML doesn’t.
+- The code examples in this book are all written in HTML and not XHTML.
+
+**`Figure 2.3` Two Scripts (A and B) loaded using both the defer and async attributes.**
+
+- Files loaded with the async attribute execute as soon as they're downloaded, whereas files loaded with defer wait unitl the docuemnt is fully parsed.
+
+**THE ASYNC SCRIPT ATTRIBUTE**
 The second attribute, async, is a more recent feature of HTML5, and behaves slightly
 differently than defer. Again, it indicates that the downloaded file won’t call document
 .write and can be downloaded as the page is being processed. But unlike defer,
