@@ -2,18 +2,14 @@
 
 ## 2.2.3 Dynamic Script Insertion
 
-It turns out you can re-create the behavior achieved by the async attribute by dynami-
-cally creating a script DOM element in JavaScript and appending it to the publisher’s
+It turns out you can re-create the behavior achieved by the async attribute by dynamically creating a script DOM element in JavaScript and appending it to the publisher’s page.
 
-page. Because you can append this script element to an arbitrary DOM location, even
+Because you can append this script element to an arbitrary DOM location, even one that has already been processed by the browser, browsers don’t preserve execution order for JavaScript loaded in this fashion.
 
-one that has already been processed by the browser, browsers don’t preserve execu-
-tion order for JavaScript loaded in this fashion. And because execution order isn’t
+And because execution order isn’t preserved, the browser downloads these files in parallel.
+This is your path to asynchronous script loading in browsers old and new.
 
-preserved, the browser downloads these files in parallel. This is your path to asynchro-
-nous script loading in browsers old and new.
-
-Here’s how the script include snippet looks using dynamic <script> tag insertion.
+Here’s how the script include snippet looks using dynamic `<script>` tag insertion.
 
 **Listing 2.1 Asynchronous Script Include**
 
