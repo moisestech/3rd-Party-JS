@@ -1,6 +1,6 @@
 # Service API Wrappers
 
-## **1.2.3 Web Serive API Wrappers**
+## **1.2.3 Web Service API Wrappers**
 
 In case you’re not familiar with them, **web service APIs are HTTP server endpoints that enable programmatic access to a web service**.
 
