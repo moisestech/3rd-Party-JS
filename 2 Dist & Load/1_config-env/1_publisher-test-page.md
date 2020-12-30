@@ -2,34 +2,33 @@
 
 ## **2.1.1 Publisher Test Page**
 
-Let’s start with the publisher test page. This is the page where you’ll load your third-
-party script and the environment in which that script will be executed. Any page will
+- Let’s start with the publisher test page.
+- This is the page where you’ll load your third-party script and the environment in which that script will be executed.
+- Any page will do, but we’ll start with a bare-bones HTML file:
 
-do, but we’ll start with a bare-bones HTML file:
-
+```html
 <!DOCTYPE html>
 <html>
-<head>
-<title>Publisher Test Page</title>
-</head>
-<body>
-<h1>Publisher Test Page</h1>
-<!-- script include snippet here -->
-</body>
+  <head>
+    <title>Publisher Test Page</title>
+  </head>
+  <body>
+    <h1>Publisher Test Page</h1>
+    <!-- script include snippet here -->
+  </body>
 </html>
-Ironically, the part of this example you’ll want to focus on is the part that’s missing:
-the script include snippet. This is the HTML snippet that you’ll give to publishers
-that will load your third-party script on their page. We don’t have one yet, so keep it
-blank for now; we’ll come back to this later.
-Now, this example makes for a boring test page; it’s a blank page with a header. But
-this is just to get you started. In an ideal world, your test page will be representative of
+```
 
-a typical page from your target audience. For example, if your product widget is tar-
-geted primarily at bloggers, the test page should illustrate how the widget might
-
-appear on a typical blog. You could even use a static copy of a known publisher’s web
-page. The closer your test page reflects the environment in which your script will be
-deployed, the fewer surprises you’ll face later.
+- Ironically, the part of this example you’ll want to focus on is the part that’s missing:
+- the script include snippet.
+- This is the HTML snippet that you’ll give to publishers that will load your third-party script on their page.
+- We don’t have one yet, so keep it blank for now; we’ll come back to this later.
+- Now, this example makes for a boring test page; it’s a blank page with a header.
+- But this is just to get you started.
+- In an ideal world, your test page will be representative of a typical page from your target audience.
+- For example, if your product widget is targeted primarily at bloggers, the test page should illustrate how the widget might appear on a typical blog.
+- You could even use a static copy of a known publisher’s web page.
+- The closer your test page reflects the environment in which your script will be deployed, the fewer surprises you’ll face later.
 
 ---
 
