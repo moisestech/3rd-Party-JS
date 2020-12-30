@@ -39,13 +39,11 @@
 - Files loaded with the async attribute execute as soon as they're downloaded, whereas files loaded with defer wait unitl the docuemnt is fully parsed.
 
 **THE ASYNC SCRIPT ATTRIBUTE**
-The second attribute, async, is a more recent feature of HTML5, and behaves slightly
-differently than defer. Again, it indicates that the downloaded file won’t call document
-.write and can be downloaded as the page is being processed. But unlike defer,
-which executes the file only after the page is completely parsed, scripts loaded with
-the async attribute are executed as soon as they’re downloaded—whether the page is
-finished processing or not. This means that async scripts can potentially execute
-sooner than scripts loaded using defer (see figure 2.3).
+
+- The second attribute, async, is a more recent feature of HTML5, and behaves slightly differently than defer.
+- Again, it indicates that the downloaded file won’t call document.write and can be downloaded as the page is being processed.
+- But unlike defer, which executes the file only after the page is completely parsed, scripts loaded with the async attribute are executed as soon as they’re downloaded—whether the page is finished processing or not.
+- This means that async scripts can potentially execute sooner than scripts loaded using defer (see `figure 2.3`).
 
 Script A request
 Web page Web server Web page
@@ -66,37 +64,32 @@ Script B request
 Script B response Script B executed
 Script A executed Script A response
 
-Figure 2.3 Two scripts (A and B) loaded using both the defer and async attributes.
-Files loaded with the async attribute execute as soon as they’re downloaded, whereas
-files loaded with defer wait until the document is fully parsed.
+`Figure 2.3` **Two scripts (A and B) loaded using both the defer and async attributes.**
 
-Download from Wow! eBook <www.wowebook.com>
+- Files loaded with the async attribute execute as soon as they’re downloaded, whereas
+- files loaded with defer wait until the document is fully parsed.
 
 Loading the initial script 29
 Here’s the widget script include one more time, using the async attribute:
 
-<script async
-src="http://camerastork.com/widget.js?product=1234"></script>
+```html
+<script async src="http://camerastork.com/widget.js?product=1234"></script>
+```
 
-Though both async and defer are helpful attributes that prevent your script from
-blocking the publisher’s page, we feel that async is the better choice for third-party
-scripts. Because async scripts can execute before the page is finished processing, they
-enable your script files to initialize and run your application as soon as possible.
-Deferred scripts, on the other hand, could spend a long time waiting for the browser
-to finish processing the page.
-Alas, like many HTML5 features, the downside to the async attribute is that it isn’t
-supported by every browser. You’ll find that only “modern” browsers like Firefox 3.6+,
-Chrome, Safari, and Internet Explorer 10 recognize it. That leaves plenty of old, but
-still actively used, browsers that don’t support the async attribute. But we’re not out of
-luck: there’s another way to load scripts asynchronously that’s backward compatible
-with such older browsers.
-WHEN TO USE BLOCKING SCRIPTS Synchronous scripts aren’t all bad. There
-are a few instances where you’ll want a blocking <script> tag. For instance, if
-you need to render HTML to the page before anything else renders, you’ll
-want to use a blocking script. Asynchronous scripts that render new elements
+- Though both async and defer are helpful attributes that prevent your script from blocking the publisher’s page, we feel that async is the better choice for third-party scripts.
+- Because async scripts can execute before the page is finished processing, they enable your script files to initialize and run your application as soon as possible.
+- Deferred scripts, on the other hand, could spend a long time waiting for the browser to finish processing the page.
+- Alas, like many HTML5 features, the downside to the async attribute is that it isn’t supported by every browser.
+- You’ll find that only “modern” browsers like Firefox 3.6+, Chrome, Safari, and Internet Explorer 10 recognize it.
+- That leaves plenty of old, but still actively used, browsers that don’t support the async attribute.
+- But we’re not out of luck: there’s another way to load scripts asynchronously that’s backward compatible with such older browsers.
 
-might not do so until after the page has mostly loaded, possibly causing ele-
-ments to reflow and temporarily look poor.s
+**WHEN TO USE BLOCKING SCRIPTS**
+
+- Synchronous scripts aren’t all bad.
+- There are a few instances where you’ll want a blocking `<script>` tag.
+- For instance, if you need to render HTML to the page before anything else renders, you’ll want to use a blocking script.
+- Asynchronous scripts that render new elements might not do so until after the page has mostly loaded, possibly causing elements to reflow and temporarily look poor.
 
 ---
 
