@@ -2,75 +2,53 @@
 
 ## **2.3.1 Aliasing Window and Undefined**
 
-The function expression from listing 2.2 has two parameters: window and undefined.
-You might recognize these as global objects that should be accessible at every scope.
-So why redeclare them as function arguments?
-For starters, window and undefined are two objects that you’ll likely use repeatedly
-in your code. When they’re declared as local variables like this, a JavaScript minifier
+- The function expression from `listing 2.2` has two parameters:
 
-can shorten their variable names to help reduce the script’s file size. But if they’re ref-
-erenced as global variables, those references can’t be renamed and shortened.
+1. window
+2. and undefined.
+
+- You might recognize these as global objects that should be accessible at every scope.
+- So why redeclare them as function arguments?
+- For starters, window and undefined are two objects that you’ll likely use repeatedly in your code.
+- When they’re declared as local variables like this, a JavaScript minifier can shorten their variable names to help reduce the script’s file size.
+- But if they’re referenced as global variables, those references can’t be renamed and shortened.
 
 **Listing 2.2 widget.js: main script body**
 
-The Stork global variable is a
-namespace object that
-encapsulates your application. The
-purpose of the namespace object is
-to house any public functions your
-application will expose. Instead of
-declaring those functions globally,
-they’re assigned as properties of
-the Stork namespace, to prevent
-them from leaking into the global
-variable scope and possibly
-conflicting with other code.
+- The Stork global variable is a namespace object that encapsulates your application.
+- The purpose of the namespace object is to house any public functions your application will expose.
+- Instead of declaring those functions globally, they’re assigned as properties of the Stork namespace, to prevent them from leaking into the global variable scope and possibly conflicting with other code.
+- These empty function stubs encapsulate parts of the application we’ll cover later.
+- Main application flow—initialize, load, and render widget.
+- **IIFE** prevents local variables and functions from leaking into the global scope.
+- If you couldn’t tell by now, we take great precautions to avoid global variables!
 
-These empty
-function
-stubs
-encapsulate
-parts of the
-application
-we’ll cover
-later.
+## Distributing and loading your application
 
-Main application flow—initialize,
-load, and render widget.
-IIFE prevents local variables and functions from
-leaking into the global scope. If you couldn’t tell
-by now, we take great precautions to avoid global
-variables!
+**JAVASCRIPT MINIFIERS**
 
-Download from Wow! eBook <www.wowebook.com>
+- JavaScript minifiers are utilities that take JavaScript source code and rewrite it to be as short as possible, in order to reduce file size.
+- This is usually accomplished by removing whitespace, renaming variables to be as small as possible, or using alternate, terse forms of common operations.
+- The output of code minifiers is usually difficult, if not impossible, to read;
+- they’re usually reserved for code that’s deployed in a production environment.
+- You’ll learn more about minifiers in chapter 9 on performance.
 
-32 CHAPTER 2 Distributing and loading your application
-JAVASCRIPT MINIFIERS JavaScript minifiers are utilities that take JavaScript
-source code and rewrite it to be as short as possible, in order to reduce file
-size. This is usually accomplished by removing whitespace, renaming variables
+- The second reason for redeclaring these variables centers mostly around the undefined object.
+- You’ll notice that undefined isn’t explicitly passed to the function.
+- Because no value is passed, the undefined function argument is given the default value of undefined by the browser.
+- This would be true of any function argument that isn’t passed an explicit value:
 
-to be as small as possible, or using alternate, terse forms of common opera-
-tions. The output of code minifiers is usually difficult, if not impossible, to
-
-read; they’re usually reserved for code that’s deployed in a production envi-
-ronment. You’ll learn more about minifiers in chapter 9 on performance.
-
-The second reason for redeclaring these variables centers mostly around the
-undefined object. You’ll notice that undefined isn’t explicitly passed to the function.
-Because no value is passed, the undefined function argument is given the default
-value of undefined by the browser. This would be true of any function argument that
-isn’t passed an explicit value:
+```javascript
 function foo(a, b) {
-console.log(a); // => 1
-console.log(b); // => undefined
+  console.log(a); // => 1
+  console.log(b); // => undefined
 }
 foo(1);
+```
 
-There’s a benefit to aliasing undefined like this. If the original object has been modi-
-fied by code elsewhere in the current execution environment, it won’t affect your
-
-code, because you’re using a local alias that has the original, untouched value. You’ll
-find this is a common technique used by JavaScript library authors.
+- There’s a benefit to aliasing undefined like this.
+- If the original object has been modified by code elsewhere in the current execution environment, it won’t affect your code, because you’re using a local alias that has the original, untouched value.
+- You’ll find this is a common technique used by JavaScript library authors.
 
 ---
 
